@@ -9,10 +9,10 @@ server = app.server  # <- ważne dla deployu
 app.layout = html.Div([
     # html.H1("Moja aplikacja Dash", style={"textAlign": "center"}),
 
-    html.Div([
-        dcc.Link(page["name"] + " | ", href=page["relative_path"])
-        for page in dash.page_registry.values()
-    ]),
+    # html.Div([
+    #     dcc.Link(page["name"] + " | ", href=page["relative_path"])
+    #     for page in dash.page_registry.values()
+    # ]),
 
     dash.page_container
 ])

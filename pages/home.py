@@ -121,25 +121,42 @@ places_dict = {
 #     print(k, len(v))
 # 2. Tworzymy DataFrame
 places = pd.DataFrame(places_dict)
+
+places['Rozmiar'] = 1  # wszystkie punkty tej samej wielkości
 # Tworzymy mapę
 fig = px.scatter_mapbox(
     places,
     lat="Geo sz",
     lon="Geo dł",
     hover_name="Nazwa",
+    color="Miejsce",
     zoom=10,
-    #  symbol="Miejsce",  # różne kategorie mają różne symbole
-     color="Miejsce",   # kolory wg kategorii
-    
+    size_max=10,
+    color_discrete_sequence=[
+        "#fd003f", "#2d4430", "#f8d702", "#3c66ff", "#f58231",
+        "#911eb4", "#46f0f0", "#a7039e", "#628301", "#140c5a"
+    ]  # mocne kontrastowe kolory
 )
-# fig.update_layout(mapbox_style="open-street-map")
+
+fig.update_traces(
+    marker=dict(
+        size=18,  # większe punkty
+        opacity=0.9
+    )
+)
 
 fig.update_layout(
     mapbox_style="open-street-map",
     autosize=True,
-    margin={"r":0,"t":0,"l":0,"b":0},  # usuwa marginesy
+    margin={"r":0,"t":0,"l":0,"b":0},
+    legend=dict(
+        orientation="h",
+        y=-0.2,
+        x=0,
+        xanchor="left",
+        yanchor="top"
+    )
 )
-
 # Layout strony
 layout = html.Div([
     html.H2("Mapa miejsc"),
