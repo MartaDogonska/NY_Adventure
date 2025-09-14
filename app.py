@@ -1,5 +1,6 @@
 import dash
 from dash import html, dcc
+import os
 
 # Tworzymy aplikację
 app = dash.Dash(__name__, use_pages=True)
@@ -17,4 +18,4 @@ app.layout = html.Div([
 ])
 
 if __name__ == "__main__":
-    app.run_server(host="0.0.0.0", port=8050, debug=True)
+    app.run_server(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8050)))
