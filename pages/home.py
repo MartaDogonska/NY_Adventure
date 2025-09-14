@@ -152,7 +152,7 @@ layout = html.Div([
     config={"displayModeBar": False}  # opcjonalnie pasek narzędzi
 ),
 
-    html.H2("Tabela miejsc"),
+    # html.H2("Tabela miejsc"),
     dash_table.DataTable(
         id="tabela",
         columns=[{"name": i, "id": i} for i in places.columns],
