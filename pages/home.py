@@ -128,6 +128,8 @@ fig = px.scatter_mapbox(
     lon="Geo dł",
     hover_name="Nazwa",
     zoom=10,
+     symbol="Miejsce",  # różne kategorie mają różne symbole
+     color="Miejsce",   # kolory wg kategorii
     
 )
 # fig.update_layout(mapbox_style="open-street-map")
@@ -152,12 +154,12 @@ layout = html.Div([
     config={"displayModeBar": False}  # opcjonalnie pasek narzędzi
 ),
 
-    # html.H2("Tabela miejsc"),
-    dash_table.DataTable(
-        id="tabela",
-        columns=[{"name": i, "id": i} for i in places.columns],
-        data=places.to_dict("records"),
-        page_size=5,
-        style_table={"overflowX": "auto"}
-    )
+    # # html.H2("Tabela miejsc"),
+    # dash_table.DataTable(
+    #     id="tabela",
+    #     columns=[{"name": i, "id": i} for i in places.columns],
+    #     data=places.to_dict("records"),
+    #     page_size=5,
+    #     style_table={"overflowX": "auto"}
+    # )
 ])
