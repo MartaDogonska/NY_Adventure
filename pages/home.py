@@ -128,7 +128,7 @@ fig = px.scatter_mapbox(
     lon="Geo dł",
     hover_name="Nazwa",
     zoom=10,
-     symbol="Miejsce",  # różne kategorie mają różne symbole
+    #  symbol="Miejsce",  # różne kategorie mają różne symbole
      color="Miejsce",   # kolory wg kategorii
     
 )
